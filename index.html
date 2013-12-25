@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<title>
+			What service do you want?
+		</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link href="css/main.css" rel="stylesheet" />
+		<link href="css/formwindow.css" rel="stylesheet" />
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		<!-- <link rel="stylesheet" href="/resources/demos/style.css" /> -->
+		<link rel="stylesheet" href="http://yui.yahooapis.com/pure/0.3.0/pure-min.css" />
+		<script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script type="text/javascript" src="http://swip.codylindley.com/jquery.DOMWindow.js"></script>
+		<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&amp;sensor=true&amp;libraries=places&amp;region=zh-TW"></script>
+		<script src="js/map.js"></script>
+		<script src="js/login.js"></script>
+		<script src="js/formwindow.js"></script>
+	</head>
+
+	<body>
+		<div id="top">
+			<a href="#" onclick="document.location.href='http://merry.ee.ncku.edu.tw/~f74991162/cur/'">
+				<img src="images/logo.png" id="topic">
+			</a>
+			<span style="background-color:#4c66a4"> </span>
+			<input type="text" id="search_top" name="search">
+			<input id="search_button_top" type="button" value="Search">
+			<a href="#">
+				<img src="images/adv_img.png" id="adv_img" style="width:30px;height:30px;padding:6px" title="進階">
+			</a>
+			<a href="#" id="login"><span>LOGIN</span></a>
+			<a href="#">
+				<img id="user_image">
+			</a>
+		</div>
+		<div class="banner">
+			<h1 class="banner-head">
+				Find+
+				<br>
+				Find Service you want.
+			</h1>
+		</div>
+		<div id = "hot_search">
+			<fieldset>
+				<legend style="font-weight: 600">Hot Search</legend>
+				<div class = "line"></div>
+				<h1 style = "cursor:pointer"></h1>
+				<h2 style = "cursor:pointer"></h2>
+				<h3 style = "cursor:pointer"></h3>
+			</fieldset>
+		</div>
+		<div id = "usual_search">
+			<div>
+				<img src = "images/seven.jpeg" class = "store_icon" value = "7-ELEVEN">
+				<img src = "images/watsons.jpg" class = "store_icon" value = "watsons">
+				<img src = "images/starbucks.jpg" class = "store_icon" value = "starbucks">
+				<img src = "images/siaob.jpg" class = "store_icon" value = "小北百貨">
+				<img src = "images/mcdonald.jpg" class = "store_icon" value = "mcdonald">
+				<img src = "images/oil.png" class = "store_icon" value = "台灣中油">
+				<img src = "images/kfc.png" class = "store_icon" value = "肯德基">
+				<img src = "images/familymart.jpg" class = "store_icon" value = "全家便利商店">
+				<img src = "images/TwPost.png" class = "store_icon" value = "郵局">
+				<img src = "images/cosmed.gif" class = "store_icon" value = "康是美">
+				<img src = "images/50.jpg" class = "store_icon" value = "50嵐">
+				<img src = "images/cht.jpg" class = "store_icon" value = "中華電信">
+			</div>
+		</div>
+		<div id="second">
+			<div id="buttons">
+				<a id="add-info_button" href="#add-info" class="extraButton">
+					<img src="images/add_info_pic.png" width="20" height="20">補充地圖資訊</a>
+				<div id="add-info" style="display:none;">
+					<form class="form_modal">
+						<fieldset>
+							<div>
+								<p>
+								<label for="name">名稱</label>
+								<input type="text" name="service_name" value="" id="add_info_name" class="input" placeholder="Ex : 小明餐館" />
+								</p>
+							</div>
+							<div>
+								<p>
+								<label for="address">住址</label>
+								<input type="text" name="service_address" value="台南市大學路一號" id="add_info_address" class="input" placeholder="Ex : 台南市大學路一號" />
+								</p>
+							</div>
+							<div>
+								<p>
+								<label for="phone">電話</label>
+								<input type="text" name="service_phone" value="" id="add_info_phone" class="input" maxlength="10" placeholder="Ex : 0987654321" />
+								</p>
+							</div>
+							<div>
+								<p>
+								<label for="time">營業時間</label>
+								<input class="input-time" type="text" name="service_stime" value="" id="add_info_stime" maxlength="2" size="2" style="width:100px;" placeholder="Ex : 0" />~
+								<input class="input-time" type="text" name="service_ftime" value="" id="add_info_ftime" maxlength="2" size="2" style="width:100px;" placeholder="Ex : 24" />
+								</p>
+							</div>
+							<div>
+								<span class="add-info_title">
+									編輯標籤 :
+								</span>
+								<input type="text" name="service_tag" value="" id="add_info_tag" />
+							</div>
+							<div>
+								<button id="close" style="position:absolute;left:30px;bottom:20px;">取消</button>
+								<button id="addinfosubmit" style="position:absolute;left:200px;bottom:20px;">送出</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<!-- <script src="js/formwindow.js"></script> -->
+				<br>
+				<br>
+				<a id="change-pos_button" href="#change-pos" class="extraButton">
+					<img src="images/human_marker.png" width="20" height="20">改變出發地點</a>
+				<div id="change-pos" style="display:none;">
+					<form class="form_modal">
+						<fieldset>
+							<div>
+								<h3 id="myModalLabel">
+									改變出發地點
+								</h3>
+							</div>
+							<div>
+								<label>目前出發地點:</label>
+								<span id="what-pos">
+									我現在位置
+								</span>
+								<br>
+								<br>
+								<br>
+								<label>
+									新出發地點 :
+								</label>
+								<input type="text" id="new-location" name="new-location" class="input" size="5" value="" placeholder="Ex : 台南市大學路1號" />
+							</div>
+							<div>
+								<button id="nowpos">
+									現在位置
+								</button>
+								<button id="close_change">
+									取消
+								</button>
+								<button id="changeposition">
+									改變
+								</button>
+							</div>
+						</fieldset>
+					</form>
+				</div>
+				<button id="submit_position" class="extraButton" style="display: none;">確定</button>
+			</div>
+			<a href="#" class="back-to-top">Back to Top</a>
+			<div id="map-canvas">
+			</div>
+		</div>
+		<div id="footer">
+			<span>Copyright © by Find+</span>
+			<a id="About" href="#AboutUs" >關於我們</a>
+			<div id="AboutUs" style="display:none;">
+				<form class="form_modal">
+					<fieldset>
+						<div>
+							<h3 id="about_title">關於我們</h3>
+						</div>
+						<span id="about1" class="about_name" onmouseout="$('#about1').attr('style','color:#32CD32; background-color:white;'); $('#about_img').attr('src','images/logo.png');" onmouseover="$('#about1').attr('style','color:white; background-color:#32CD32;'); $('#about_img').attr('src','images/about_1.jpg');">林俊翰</span>
+						<span id="about2" class="about_name" onmouseout="$('#about2').attr('style','color:#32CD32; background-color:white;'); $('#about_img').attr('src','images/logo.png');" onmouseover="$('#about2').attr('style','color:white; background-color:#32CD32;'); $('#about_img').attr('src','images/about_2.jpg');">徐崇倫</span>
+						<span id="about3" class="about_name" onmouseout="$('#about3').attr('style','color:#32CD32; background-color:white;'); $('#about_img').attr('src','images/logo.png');" onmouseover="$('#about3').attr('style','color:white; background-color:#32CD32;'); $('#about_img').attr('src','images/about_3.jpg');">顧又榮</span>
+						<span id="about4" class="about_name" onmouseout="$('#about4').attr('style','color:#32CD32; background-color:white;'); $('#about_img').attr('src','images/logo.png');" onmouseover="$('#about4').attr('style','color:white; background-color:#32CD32;'); $('#about_img').attr('src','images/about_4.jpg');">陳尚佑</span>
+						<span id="about5" class="about_name" onmouseout="$('#about5').attr('style','color:#32CD32; background-color:white;'); $('#about_img').attr('src','images/logo.png');" onmouseover="$('#about5').attr('style','color:white; background-color:#32CD32;'); $('#about_img').attr('src','images/about_5.jpg');">張家誠</span>
+						<br>
+						<br>
+						<div style="margin-left: 10px;"><img id="about_img" width="240" height="188" src="images/logo.png"></div>
+						<br>
+						<div>
+							<button id="close_about">OK</button>
+						</div>
+					</fieldset>
+				</form>
+			</div>
+			<script src="js/formwindow.js"></script>
+		</div>
+		<div id="fb-root"></div>
+		
+	</body>
+</html>

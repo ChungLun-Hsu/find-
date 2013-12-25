@@ -1,0 +1,38 @@
+.form_modal{
+  margin:1em 0;
+  padding-top:10px;
+}
+.form_modal fieldset{
+  margin:0;
+  padding:0;
+  border:none;
+  float:left;
+  display:inline;
+  width:260px;
+  margin-left:25px;
+}
+.form_modal legend{display:none;}
+.form_modal p{margin:.5em 0;}
+.form_modal label{display:block;}
+.form_modal input{
+  background:#D0D0D0;
+  width:252px;
+  border:2px solid #ddd;
+  background:#fff url(../images/formwindow_input.gif)repeat-x;
+  padding:3px;
+}
+.form_modal input:hover{
+  background:#C8C8C8;
+}
+.form_modal button{
+  width:150px;
+  height:37px;
+  line-height:37px;
+  border:none;
+  background:url(../images/formwindow_button.gif)no-repeat 0 0;
+  color:#fff;
+  cursor:pointer;
+  text-align:center;
+
+}
+
